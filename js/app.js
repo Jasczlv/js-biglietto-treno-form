@@ -5,9 +5,6 @@
 // oppure applicato uno sconto del 40% per gli over 65.
 // L’output del prezzo finale va stampato in console in forma “umana” cioè con al massimo due decimali, per indicare centesimi sul prezzo. Questo richiederà un minimo di ricerca.
 
-// CHIEDERE IL NOME E COGNOME
-const getNomeCognome = document.getElementById('nome-cognome'); //?
-const nomeCognome = getNomeCognome.value; //stringa
 
 
 //REGISTRARE IL SUBMIT
@@ -21,6 +18,10 @@ const datiPasseggero = document.querySelector('div.biglietto .col')
 
 //funzione da svolgersi al click sul pulsante
 submitElement.addEventListener('click', function (){ 
+    
+    // CHIEDERE IL NOME E COGNOME
+    const getNomeCognome = document.getElementById('nome-cognome'); //?
+    const nomeCognome = getNomeCognome.value; //stringa
 
     // inserisce nome e cognome all'interno del HTML
 
@@ -51,9 +52,14 @@ submitElement.addEventListener('click', function (){
     // CALCOLO PREZZI BIGLIETTI
 
     let prezzoBiglietto = parseFloat(km * coeffKm);
-    const offerta = document.querySelector('div.biglietto .col:nth-child(3)')
-    const displayPrezzo = document.querySelector('div.biglietto .col:nth-child(5)')
 
+    //posizione html di offerta,prezzo e carrozza
+    const offerta = document.getElementById('offerta');
+    const displayPrezzo = document.getElementById('prezzo');
+    const carrozza = document.getElementById('carrozza');
+    carrozza.innerHTML += `
+        <span>${Math.floor(Math.random()* 100) + 1}</span>
+        `
 
     // SCONTO MINORENNI 
 
